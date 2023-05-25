@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 const ProductosFormulario = () => {
 
     const [titulo, setTitulo] = useState('')
     const [precio, setPrecio] = useState('')
     const [descripcion, setDescripcion] = useState('')
+    const navigate = useNavigate() 
 
     const prevenirCarga = (e) => {
         e.preventDefault()
@@ -14,6 +16,7 @@ const ProductosFormulario = () => {
             descripcion
         }).then((res) => {
             console.log(res)
+            navigate('/listaproductos')
         }).then((error) => {
             console.log(error)
             
